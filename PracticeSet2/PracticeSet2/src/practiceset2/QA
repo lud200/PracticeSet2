@@ -1,0 +1,32 @@
+There is a big file of words which is dynamically changing.
+We are continuously adding some words into it. 
+How would you keep track of top 10 trending words at each moment?
+
+Answer:
+
+If it's top 10 trending words then you should use a min-heap along with a hash-table.
+
+When a new word is added to the file then:
+
+Create a new element x with x.key=word and x.count=1.
+Add x to the hash-table. O(1).
+Add x to the min-heap. O(log n).
+When an existing word is added to the file then:
+
+Find x in the hash-table. O(1).
+Update x.count to x.count++.
+When there is a need to retrieve the top 10 trending words then:
+
+Extract 10 times from the min-heap. 
+As you can see, all the needed operations are done in at most O(lgn).
+
+__________________________________________________________________________
+Question 2
+
+What is the best time complexity in getting the min element(s) from a max heap.
+
+The only guarantee you have, is that each node contains the maximum element of the subtree below it. 
+In other words, the minimum element can be any leaf in the tree.
+
+The correct answer is O(n). In each step you need traverse both left and right sub-trees in order to search for the minimum element. 
+In effect, this means that you need to traverse all elements to find the minimum.
